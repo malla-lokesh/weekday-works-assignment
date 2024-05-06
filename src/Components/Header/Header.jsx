@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Grid,
   FormControl,
@@ -7,14 +7,17 @@ import {
   MenuItem,
   TextField,
 } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { inputActions } from "../../Store/InputsSlice";
 
 const Header = () => {
-  const [experience, setExperience] = useState("");
-  const [companyName, setCompanyName] = useState("");
-  const [location, setLocation] = useState("");
-  const [jobType, setJobType] = useState("");
-  const [roles, setRoles] = useState("");
-  const [minSalary, setMinSalary] = useState("");
+  const dispatch = useDispatch();
+  const experience = useSelector((state) => state.input.experience);
+  const companyName = useSelector((state) => state.input.companyName);
+  const location = useSelector((state) => state.input.location);
+  const jobType = useSelector((state) => state.input.jobType);
+  const roles = useSelector((state) => state.input.roles);
+  const minSalary = useSelector((state) => state.input.minSalary);
 
   return (
     <React.Fragment>
@@ -26,7 +29,9 @@ const Header = () => {
             id="experience"
             value={experience}
             label="experience"
-            onChange={(e) => setExperience(e.target.value)}
+            onChange={(e) =>
+              dispatch(inputActions.setExperience(e.target.value))
+            }
           >
             <MenuItem value={"1"}>1</MenuItem>
             <MenuItem value={"2"}>2</MenuItem>
@@ -47,7 +52,9 @@ const Header = () => {
             variant="outlined"
             label={"companyName"}
             value={companyName}
-            onChange={(e) => setCompanyName(e.target.value)}
+            onChange={(e) =>
+              dispatch(inputActions.setCompanyName(e.target.value))
+            }
           />
         </FormControl>
       </Grid>
@@ -59,7 +66,7 @@ const Header = () => {
             id="location"
             value={location}
             label="location"
-            onChange={(e) => setLocation(e.target.value)}
+            onChange={(e) => dispatch(inputActions.setLocation(e.target.value))}
           >
             <MenuItem value={"mumbai"}>Mumbai</MenuItem>
             <MenuItem value={"delhi ncr"}>delhi ncr</MenuItem>
@@ -77,7 +84,7 @@ const Header = () => {
             value={jobType}
             id="job type"
             label="job type"
-            onChange={(e) => setJobType(e.target.value)}
+            onChange={(e) => dispatch(inputActions.setJobType(e.target.value))}
           >
             <MenuItem value={"remote"}>Remote</MenuItem>
             <MenuItem value={"hybrid"}>Hybrid</MenuItem>
@@ -93,7 +100,7 @@ const Header = () => {
             value={roles}
             id="roles"
             label="roles"
-            onChange={(e) => setRoles(e.target.value)}
+            onChange={(e) => dispatch(inputActions.setRoles(e.target.value))}
           >
             <MenuItem value={"frontend"}>frontend</MenuItem>
             <MenuItem value={"ios"}>ios</MenuItem>
@@ -111,7 +118,9 @@ const Header = () => {
             value={minSalary}
             id="min base pay salary"
             label="min base pay salary"
-            onChange={(e) => setMinSalary(e.target.value)}
+            onChange={(e) =>
+              dispatch(inputActions.setMinSalary(e.target.value))
+            }
           >
             <MenuItem value={"0"}>0</MenuItem>
             <MenuItem value={"1"}>1L</MenuItem>

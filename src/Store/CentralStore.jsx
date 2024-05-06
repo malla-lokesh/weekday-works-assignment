@@ -1,7 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
+import InputReducer from "./InputsSlice";
 
 const CentralStore = configureStore({
-  reducer: {},
+  reducer: {
+    input: InputReducer,
+  },
 });
 
 export default CentralStore;
