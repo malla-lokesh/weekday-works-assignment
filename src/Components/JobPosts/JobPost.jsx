@@ -29,6 +29,7 @@ const JobPost = ({ post, loading, hasMoreJobs }) => {
         height={"10rem"}
         overflow={"hidden"}
         marginBottom={"1rem"}
+        component={"div"}
       >
         {post?.jobDetailsFromCompany}
         <Typography className="showMore">Show more</Typography>
