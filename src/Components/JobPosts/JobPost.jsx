@@ -2,6 +2,7 @@ import { Grid, Typography, Button } from "@mui/material";
 import Item from "../../UI/Item";
 import React from "react";
 import "./JobPost.css";
+import ApplyButton from "../../UI/ApplyButton";
 
 const JobPost = ({ post, loading, hasMoreJobs }) => {
   return (
@@ -19,11 +20,13 @@ const JobPost = ({ post, loading, hasMoreJobs }) => {
         </Grid>
       </Grid>
       <Typography marginBottom={"0.5rem"}>About Company</Typography>
-      <Typography className="jobDescription" marginBottom={"1rem"}>
+      <Typography marginBottom={"1rem"}>
         {post?.jobDetailsFromCompany}
       </Typography>
-      <Typography>Min Experience - {post.minExp}</Typography>
-      <Button>Easy Apply</Button>
+      <Typography marginBottom={"1rem"}>
+        Min Experience - {post.minExp}
+      </Typography>
+      <ApplyButton />
     </Item>
   );
 };
