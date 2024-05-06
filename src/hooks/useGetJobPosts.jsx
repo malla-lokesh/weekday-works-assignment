@@ -1,10 +1,16 @@
 import { Snackbar } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { postsActions } from "../Store/PostsStore";
 
 const useGetJobPosts = (offset) => {
-  const [jobPosts, setJobPosts] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [hasMoreJobPosts, setHasMoreJobPosts] = useState(false);
+  // const [jobPosts, setJobPosts] = useState([]);
+  // const [hasMoreJobPosts, setHasMoreJobPosts] = useState(false);
+
+  const dispatch = useDispatch();
+  const jobPosts = useSelector((state) => state.posts.jobPosts);
+  const isLoading = useSelector((state) => state.posts.isLoading);
+  const hasMoreJobPosts = useSelector((state) => state.posts.hasMoreJobPosts);
   const isInitialRender = useRef(true);
 
   useEffect(() => {
@@ -15,7 +21,7 @@ const useGetJobPosts = (offset) => {
       return;
     }
 
-    setIsLoading(true);
+    dispatch(postsActions.setIsLoading(true));
 
     const fetchData = async () => {
       const body = JSON.stringify({
@@ -38,9 +44,10 @@ const useGetJobPosts = (offset) => {
         );
         if (response.ok) {
           const data = await response.json();
-          setJobPosts((prevJobPosts) => [...prevJobPosts, ...data.jdList]); // appending the new job posts to the old job posts
-          setHasMoreJobPosts(data.jdList.length > 0); // checking if there were more job posts or not
-          setIsLoading(false);
+          dispatch(postsActions.setJobPosts(data.jdList)); // appending the new job posts to the old job posts
+
+          dispatch(postsActions.setHasMoreJobPosts(data.jdList.length > 0)); // checking if there were more job posts or not
+          dispatch(postsActions.setIsLoading(false));
         }
       } catch (error) {
         <Snackbar message={error.message} />;

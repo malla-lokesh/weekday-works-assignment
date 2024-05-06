@@ -12,7 +12,7 @@ const ApplyButton = () => {
 
   return (
     <ColouredBtn variant="contained" disableRipple fullWidth>
-      Easy Apply
+      ⚡️Easy Apply
     </ColouredBtn>
   );
 };
