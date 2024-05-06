@@ -6,6 +6,8 @@ import { Grid } from "@mui/material";
 const Posts = () => {
   const { jobPosts, isLoading, hasMoreJobPosts } = useGetJobPosts();
 
+  const filteredPosts = jobPosts.filter((post) => {});
+
   return (
     <Grid container spacing={2}>
       {jobPosts.map((jobPost) => (

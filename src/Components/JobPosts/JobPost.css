@@ -1,5 +1,43 @@
+.post {
+  border-radius: 1rem;
+  box-shadow: 0rem 0rem 0.2rem rgba(0, 0, 0, 0.5);
+}
+
 .logo {
   height: 100%;
   width: 100%;
   object-fit: cover;
+}
+
+.description {
+  position: relative;
+}
+
+.description::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+}
+
+.showMore {
+  color: rgb(103, 98, 225);
+  position: absolute;
+  z-index: 10;
+  top: 9.5rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.showMore:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.companyName,
+.experience {
+  color: rgb(139, 139, 139);
 }

@@ -1,4 +1,4 @@
-import { Grid, Typography, Button } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import Item from "../../UI/Item";
 import React from "react";
 import "./JobPost.css";
@@ -6,7 +6,7 @@ import ApplyButton from "../../UI/ApplyButton";
 
 const JobPost = ({ post, loading, hasMoreJobs }) => {
   return (
-    <Item>
+    <Grid padding={2} className="post">
       <Grid container spacing={2} marginBottom={"1rem"} alignItems={"center"}>
         <Grid item xs={3}>
           <Item>
@@ -14,20 +14,30 @@ const JobPost = ({ post, loading, hasMoreJobs }) => {
           </Item>
         </Grid>
         <Grid item xs={9}>
-          <Typography className="companyName">{post?.companyName}</Typography>
+          <Typography style={{ fontSize: "0.85rem" }} className="companyName">
+            {post?.companyName}
+          </Typography>
           <Typography className="jobRole">{post?.jobRole}</Typography>
-          <Typography className="location">{post?.location}</Typography>
+          <Typography style={{ fontSize: "0.75rem" }} className="location">
+            {post?.location}
+          </Typography>
         </Grid>
       </Grid>
-      <Typography marginBottom={"0.5rem"}>About Company</Typography>
-      <Typography marginBottom={"1rem"}>
+      <Typography marginBottom={"0.2rem"}>About Company:</Typography>
+      <Typography
+        className="description"
+        height={"10rem"}
+        overflow={"hidden"}
+        marginBottom={"1rem"}
+      >
         {post?.jobDetailsFromCompany}
+        <Typography className="showMore">Show more</Typography>
       </Typography>
-      <Typography marginBottom={"1rem"}>
+      <Typography className="experience" marginBottom={"1rem"}>
         Min Experience - {post.minExp}
       </Typography>
       <ApplyButton />
-    </Item>
+    </Grid>
   );
 };
 
