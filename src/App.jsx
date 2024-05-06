@@ -114,7 +114,7 @@ function App() {
             </FormControl>
           </Grid>
         </Grid>
-        <Grid item container spacing={2}>
+        <Grid item container spacing={2} marginLeft={"0rem"}>
           <Posts />
         </Grid>
       </Grid>

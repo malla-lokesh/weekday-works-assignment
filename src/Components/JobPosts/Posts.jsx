@@ -1,23 +1,23 @@
 import React from "react";
 import useGetJobPosts from "../../hooks/useGetJobPosts";
 import JobPost from "./JobPost";
+import { Grid } from "@mui/material";
 
 const Posts = () => {
   const { jobPosts, isLoading, hasMoreJobPosts } = useGetJobPosts();
 
   return (
-    <React.Fragment>
-      {jobPosts.map((jobPost) => {
-        return (
+    <Grid container spacing={2}>
+      {jobPosts.map((jobPost) => (
+        <Grid item xs={12} sm={6} lg={4} key={jobPost.jdUid}>
           <JobPost
-            key={jobPost.jdUid}
             post={jobPost}
             loading={isLoading}
             hasMoreJobs={hasMoreJobPosts}
           />
-        );
-      })}
-    </React.Fragment>
+        </Grid>
+      ))}
+    </Grid>
   );
 };
 
