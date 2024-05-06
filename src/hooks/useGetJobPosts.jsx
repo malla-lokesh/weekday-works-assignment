@@ -5,8 +5,16 @@ const useGetJobPosts = (offset) => {
   const [jobPosts, setJobPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [hasMoreJobPosts, setHasMoreJobPosts] = useState(false);
+  const isInitialRender = useRef(true);
 
   useEffect(() => {
+    if (isInitialRender.current) {
+      // Initially the API call is being called two times,
+      // hence using useRef to return if second time called
+      isInitialRender.current = false;
+      return;
+    }
+
     setIsLoading(true);
 
     const fetchData = async () => {

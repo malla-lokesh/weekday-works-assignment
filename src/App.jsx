@@ -10,7 +10,7 @@ import {
 
 import "./App.css";
 import { useState } from "react";
-import JobPost from "./Components/JobPost";
+import Posts from "./Components/JobPosts/Posts";
 
 function App() {
   const [roles, setRoles] = useState("");
@@ -115,7 +115,7 @@ function App() {
           </Grid>
         </Grid>
         <Grid item container spacing={2}>
-          <JobPost />
+          <Posts />
         </Grid>
       </Grid>
     </Box>
