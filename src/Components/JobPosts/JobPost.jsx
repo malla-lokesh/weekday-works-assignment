@@ -1,10 +1,20 @@
 import { Grid, Typography } from "@mui/material";
 import Item from "../../UI/Item";
-import React from "react";
+import React, { useCallback, useState } from "react";
 import "./JobPost.css";
 import ApplyButton from "../../UI/ApplyButton";
+import DialogComponent from "../../UI/DialogComponent";
 
 const JobPost = React.forwardRef(({ post }, ref) => {
+  const [open, setOpen] = useState(false);
+  const handleOpen = useCallback(() => {
+    setOpen(true);
+  }, []);
+
+  const handleClose = useCallback(() => {
+    setOpen(false);
+  }, []);
+
   return (
     <Grid ref={ref} padding={2} className="post">
       <Grid container spacing={2} marginBottom={"1rem"} alignItems={"center"}>
@@ -32,7 +42,18 @@ const JobPost = React.forwardRef(({ post }, ref) => {
         component={"div"}
       >
         {post?.jobDetailsFromCompany}
-        <Typography className="showMore">Show more</Typography>
+        <Typography
+          component={"button"}
+          onClick={handleOpen}
+          className="showMore"
+        >
+          Show more
+        </Typography>
+        <DialogComponent
+          open={open}
+          onClose={handleClose}
+          content={post.jobDetailsFromCompany}
+        />
       </Typography>
       <Typography className="experience" marginBottom={"1rem"}>
         Min Experience - {post.minExp}
