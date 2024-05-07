@@ -4,6 +4,7 @@ const initialPostsState = {
   jobPosts: [],
   isLoading: false,
   hasMoreJobPosts: false,
+  offset: 0,
 };
 
 const postsSlice = createSlice({
@@ -18,6 +19,9 @@ const postsSlice = createSlice({
     },
     setHasMoreJobPosts(state, action) {
       state.hasMoreJobPosts = action.payload;
+    },
+    setOffset(state) {
+      state.offset = state.offset + 10;
     },
   },
 });

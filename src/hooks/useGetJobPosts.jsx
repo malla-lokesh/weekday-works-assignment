@@ -3,11 +3,12 @@ import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { postsActions } from "../Store/PostsStore";
 
-const useGetJobPosts = (offset) => {
+const useGetJobPosts = () => {
   const dispatch = useDispatch();
   const jobPosts = useSelector((state) => state.posts.jobPosts);
   const isLoading = useSelector((state) => state.posts.isLoading);
   const hasMoreJobPosts = useSelector((state) => state.posts.hasMoreJobPosts);
+  const offset = useSelector((state) => state.posts.offset);
   const isInitialRender = useRef(true);
 
   useEffect(() => {

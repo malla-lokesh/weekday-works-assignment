@@ -4,9 +4,9 @@ import React from "react";
 import "./JobPost.css";
 import ApplyButton from "../../UI/ApplyButton";
 
-const JobPost = ({ post }) => {
+const JobPost = React.forwardRef(({ post }, ref) => {
   return (
-    <Grid padding={2} className="post">
+    <Grid ref={ref} padding={2} className="post">
       <Grid container spacing={2} marginBottom={"1rem"} alignItems={"center"}>
         <Grid item xs={3}>
           <Item>
@@ -40,6 +40,6 @@ const JobPost = ({ post }) => {
       <ApplyButton />
     </Grid>
   );
-};
+});
 
 export default JobPost;
