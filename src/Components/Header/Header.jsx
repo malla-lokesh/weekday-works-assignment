@@ -76,7 +76,7 @@ const Header = () => {
           </Select>
         </FormControl>
       </Grid>
-      <Grid item xs={12} sm={6} md={4} lg={2}>
+      {/* <Grid item xs={12} sm={6} md={4} lg={2}>
         <FormControl fullWidth>
           <InputLabel id="job type">Job Type</InputLabel>
           <Select
@@ -87,11 +87,10 @@ const Header = () => {
             onChange={(e) => dispatch(inputActions.setJobType(e.target.value))}
           >
             <MenuItem value={"remote"}>Remote</MenuItem>
-            <MenuItem value={"hybrid"}>Hybrid</MenuItem>
             <MenuItem value={"on-site"}>On-site</MenuItem>
           </Select>
         </FormControl>
-      </Grid>
+      </Grid> */}
       <Grid item xs={12} sm={6} md={4} lg={2}>
         <FormControl fullWidth>
           <InputLabel id="roles">Roles</InputLabel>
@@ -123,16 +122,16 @@ const Header = () => {
             }
           >
             <MenuItem value={"0"}>0</MenuItem>
-            <MenuItem value={"1"}>1L</MenuItem>
-            <MenuItem value={"2"}>2L</MenuItem>
-            <MenuItem value={"3"}>3L</MenuItem>
-            <MenuItem value={"4"}>4L</MenuItem>
-            <MenuItem value={"5"}>5L</MenuItem>
-            <MenuItem value={"6"}>6L</MenuItem>
-            <MenuItem value={"7"}>7L</MenuItem>
-            <MenuItem value={"8"}>8L</MenuItem>
-            <MenuItem value={"9"}>9L</MenuItem>
             <MenuItem value={"10"}>10L</MenuItem>
+            <MenuItem value={"20"}>20L</MenuItem>
+            <MenuItem value={"30"}>30L</MenuItem>
+            <MenuItem value={"40"}>40L</MenuItem>
+            <MenuItem value={"50"}>50L</MenuItem>
+            <MenuItem value={"60"}>60L</MenuItem>
+            <MenuItem value={"70"}>70L</MenuItem>
+            <MenuItem value={"80"}>80L</MenuItem>
+            <MenuItem value={"90"}>90L</MenuItem>
+            <MenuItem value={"100"}>100L</MenuItem>
           </Select>
         </FormControl>
       </Grid>

@@ -1,12 +1,9 @@
 import { Snackbar } from "@mui/material";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { postsActions } from "../Store/PostsStore";
 
 const useGetJobPosts = (offset) => {
-  // const [jobPosts, setJobPosts] = useState([]);
-  // const [hasMoreJobPosts, setHasMoreJobPosts] = useState(false);
-
   const dispatch = useDispatch();
   const jobPosts = useSelector((state) => state.posts.jobPosts);
   const isLoading = useSelector((state) => state.posts.isLoading);
