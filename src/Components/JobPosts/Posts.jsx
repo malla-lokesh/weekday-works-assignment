@@ -38,6 +38,8 @@ const Posts = () => {
     const locationLowerCase = location.toLowerCase();
     const companyNameLowerCase = companyName.toLowerCase();
     const rolesLowerCase = roles.toLowerCase();
+    const minSalaryInt = minSalary !== "" ? parseInt(minSalary, 10) : 0;
+    const experienceInt = experience !== "" ? parseInt(experience, 10) : 0;
 
     return (
       (location === "" ||
@@ -45,8 +47,8 @@ const Posts = () => {
       (roles === "" || post.jobRole.toLowerCase().includes(rolesLowerCase)) &&
       (companyName === "" ||
         post.companyName.toLowerCase().includes(companyNameLowerCase)) &&
-      (experience === "" || post.minExp === experience) &&
-      (minSalary === "" || post.minJdSalary > minSalary)
+      (experience === "" || parseInt(post.minExp, 10) === experienceInt) &&
+      (minSalary === "" || parseInt(post.minJdSalary, 10) > minSalaryInt)
     );
   });
 
